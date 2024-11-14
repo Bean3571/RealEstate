@@ -1,0 +1,181 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="RealEstate.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+
+    <style type="text/css">
+        .auto-style1 {
+            width: 100%;
+        }
+        .auto-style3 {
+            width: 1253px;
+            height: 459px;
+            margin-right: 0px;
+        }
+        .auto-style5 {
+            width: 385px;
+            height: 42px;
+        }
+        .auto-style6 {
+            width: 126px;
+            text-align: justify;
+            height: 322px;
+        }
+        .auto-style7 {
+            width: 126px;
+            height: 42px;
+            text-align: justify;
+        }
+        .auto-style8 {
+            height: 42px;
+            width: 921px;
+        }
+        .auto-style9 {
+            width: 109px;
+        }
+        .auto-style11 {
+            margin-bottom: 0px;
+        }
+        .auto-style12 {
+            width: 121%;
+            height: 47px;
+        }
+        .auto-style13 {
+            height: 23px;
+            width: 119px;
+        }
+        .auto-style14 {
+            height: 322px;
+        }
+        .auto-style15 {
+            text-align: right;
+        }
+        .auto-style16 {
+            width: 119px;
+        }
+        .auto-style17 {
+            width: 155px;
+            height: 155px;
+        }
+        .auto-style18 {
+            width: 109px;
+            height: 26px;
+        }
+        .auto-style19 {
+            height: 26px;
+        }
+        .auto-style20 {
+            height: 23px;
+        }
+        .auto-style21 {
+            height: 42px;
+            width: 2739px;
+        }
+        .auto-style22 {
+            margin-right: 11px;
+        }
+    </style>
+
+</head>
+<body>
+    <form id="form1" runat="server">
+    <table class="auto-style3">
+        <tr>
+            <td class="auto-style7">
+                <img alt="Лого" class="auto-style17" src="logo.png" /></td>
+            <td class="auto-style21">Новые квартиры от застройщика</td>
+            <td class="auto-style8" style="vertical-align: top">
+                <br />
+                <asp:LinkButton ID="LinkButtonAddApartment" runat="server" OnClick="LinkButtonAddApartment_Click" Visible="False">Размещение квартир</asp:LinkButton>
+                <br />
+                <br />
+                <asp:LinkButton ID="LinkButtonEditApartment" runat="server" OnClick="LinkButtonEditApartment_Click" Visible="False">Редактирование квартир</asp:LinkButton>
+                <br />
+                <br />
+                <asp:LinkButton ID="LinkButtonManageReq" runat="server" OnClick="LinkButtonManageReq_Click" Visible="False">Обработка заявок</asp:LinkButton>
+                <br />
+                <br />
+                <asp:LinkButton ID="LinkButtonRegEmp" runat="server" OnClick="LinkButtonRegEmp_Click" Visible="False">Зарегистрировать сотрудника</asp:LinkButton>
+            </td>
+            <td class="auto-style5"><table class="auto-style1">
+                <tr>
+                    <td colspan="3" class="auto-style20">
+                        <asp:Label ID="LabelHello" runat="server"></asp:Label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style18">
+                        <asp:Label ID="LabelLogin" runat="server" Text="Логин"></asp:Label>
+                    </td>
+                    <td colspan="2" class="auto-style19">
+                        <asp:TextBox ID="TextBoxLogin" runat="server" CssClass="auto-style11" Width="150px"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style18">
+                        <asp:Label ID="LabelPassword" runat="server" Text="Пароль"></asp:Label>
+                    </td>
+                    <td colspan="2" class="auto-style19">
+                        <asp:TextBox ID="TextBoxPassword" runat="server" Width="150px" CssClass="auto-style22"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style9">
+                        <asp:LinkButton ID="LinkButtonRegister" runat="server" OnClick="LinkButton5_Click">Регистрация</asp:LinkButton>
+                    </td>
+                    <td>
+                        <asp:Button ID="ButtonLogin" runat="server" OnClick="Button2_Click" Text="Вход" />
+                        <asp:Label ID="LabelError" runat="server"></asp:Label>
+                    </td>
+                    <td class="auto-style15">
+                        <asp:Button ID="ButtonLogout" runat="server" OnClick="Button3_Click" Text="Выход" Visible="False" />
+                        <asp:Label ID="LabelQuery" runat="server"></asp:Label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style9">
+                        <asp:LinkButton ID="LinkButtonMyReq" runat="server" OnClick="LinkButton5_Click1" Visible="False">Мои заявки</asp:LinkButton>
+                    </td>
+                    <td colspan="2">
+                        <asp:LinkButton ID="LinkButtonEditProfile" runat="server" OnClick="LinkButton6_Click" Visible="False">Редактировать профиль</asp:LinkButton>
+                    </td>
+                </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style6" style="vertical-align: top"><table class="auto-style12" dir="ltr">
+                <tr>
+                    <td class="auto-style13">
+                        <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click">Главная</asp:LinkButton>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style13">
+                        <asp:LinkButton ID="LinkButton4" runat="server" OnClick="LinkButton4_Click">Поиск квартиры</asp:LinkButton>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style16">
+                        <asp:LinkButton ID="LinkButton2" runat="server" OnClick="LinkButton2_Click">Новости</asp:LinkButton>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style16">
+                        <asp:LinkButton ID="LinkButton3" runat="server" OnClick="LinkButton3_Click">О нас</asp:LinkButton>
+                    </td>
+                </tr>
+                </table>
+            </td>
+            <td colspan="3" class="auto-style14" style="vertical-align: top">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </td>
+        </tr>
+    </table>
+    </form>
+</body>
+</html>
