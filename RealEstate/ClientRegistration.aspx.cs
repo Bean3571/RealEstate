@@ -19,7 +19,6 @@ namespace RealEstate
         {
             if (Page.IsValid)
             {
-                //string ConnectionString = "Data Source=ACID-PC;Initial Catalog=agency;Integrated Security=True;TrustServerCertificate=True, Provider=Microsoft.Jet.OLEDB.4.0";
                 string ConnectionString = "Provider=SQLOLEDB;Data Source=ACID-PC;Initial Catalog=agency;Integrated Security=SSPI;TrustServerCertificate=True";
                 var Connection = new OleDbConnection(ConnectionString);
                 try
@@ -78,8 +77,6 @@ namespace RealEstate
             {
                 LabelError.Text = "Необходимо корректно заполнить все поля";
             }
-
-
         }
 
         protected void TextBoxName_TextChanged(object sender, EventArgs e)

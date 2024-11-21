@@ -84,7 +84,6 @@ namespace RealEstate
                 LinkButtonManageReq.Visible = false;
                 LinkButtonRegEmp.Visible = false;
             } 
-           
         }
 
         protected void Button3_Click(object sender, EventArgs e)
@@ -98,8 +97,9 @@ namespace RealEstate
 
             Session["IDU"] = 0;
             Session["Suser"] = "Logged out";
-            if (IDU != 0)
+            if (IDU == 0)
             {
+                LabelHello.Visible = false;
                 ButtonLogin.Visible = true;
                 ButtonLogout.Visible = false;
                 TextBoxLogin.Visible = true;
@@ -107,9 +107,17 @@ namespace RealEstate
                 LabelLogin.Visible = true;
                 LabelPassword.Visible = true;
                 LinkButtonRegister.Visible = true;
+                LinkButtonMyReq.Visible = false;
+                LinkButtonEditProfile.Visible = false;
+
+                LinkButtonAddApartment.Visible = false;
+                LinkButtonEditApartment.Visible = false;
+                LinkButtonManageReq.Visible = false;
+                LinkButtonRegEmp.Visible = false;
 
             }
-    }
+            Response.Redirect("Main.aspx");
+        }
 
         protected void LinkButton1_Click(object sender, EventArgs e)
         {

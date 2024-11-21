@@ -4,6 +4,7 @@ using System.Data.OleDb;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 
 namespace RealEstate
@@ -32,7 +33,15 @@ namespace RealEstate
                     Connection.Close();
                     return;
                 }
-
+                string mypath, myfile, filename, myimg;
+                myimg = "images\\";
+                mypath = Request.PhysicalApplicationPath;
+                myfile = FileUpload1.FileName;
+                filename = mypath + myimg + myfile;
+                if (FileUpload1.HasFile == true)
+                {
+                    FileUpload1.SaveAs(filename);
+                }
                 int idAptType = int.Parse(DropDownListAptType.SelectedValue);
                 int idBuilding = int.Parse(DropDownListBuildingId.SelectedValue);
                 int price = int.Parse(TextBoxPrice.Text);
@@ -41,7 +50,8 @@ namespace RealEstate
                 decimal area = decimal.Parse(TextBoxArea.Text);
                 int idStatusApt = int.Parse(DropDownListAptStatus.SelectedValue);
                 int idOverhaul = int.Parse(DropDownListOverhaul.SelectedValue);
-                string imageAptPlan = TextBoxImageAptPlan.Text;
+                //string imageAptPlan = TextBoxImageAptPlan.Text;
+                string imageAptPlan = myimg + myfile;
 
                 string query = "INSERT INTO Apartment (id_AptType, id_building, Price, Floor, Rooms, Area, id_StatusApt, id_Overhaul, ImageAptPlan) " +
                                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -79,6 +89,16 @@ namespace RealEstate
             {
                 LabelError.Text = "Необходимо корректно заполнить все поля";
             }
+        }
+
+        protected void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Session["SelectedDistrict"] = ListBox1.SelectedValue;
+        }
+
+        protected void ListBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Session["SelectedStreet"] = ListBox2.SelectedValue;
         }
     }
 }

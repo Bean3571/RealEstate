@@ -14,11 +14,39 @@
             </td>
         </tr>
         <tr>
-            <td class="auto-style16" style="width: 161px; height: 23px;">ID здания</td>
+            <td class="auto-style16" style="width: 161px; height: 23px;">Район</td>
+            <td class="auto-style16" style="width: 129px; height: 23px;">
+                <asp:ListBox ID="ListBox1" runat="server" AutoPostBack="True" CssClass="auto-style11" DataSourceID="DistrictDataSource" DataTextField="NameDistrict" DataValueField="id_District" Height="164px" OnSelectedIndexChanged="ListBox1_SelectedIndexChanged" Width="186px"></asp:ListBox>
+                <asp:SqlDataSource ID="DistrictDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:agencyConnectionString2 %>" SelectCommand="SELECT * FROM [District]"></asp:SqlDataSource>
+            </td>
+            <td class="auto-style20">
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ControlToValidate="ListBox1" EnableClientScript="False" ErrorMessage="Необходимо выбрать"></asp:RequiredFieldValidator>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style16" style="width: 161px; height: 16px;">Улица</td>
+            <td class="auto-style16" style="width: 129px; height: 16px;">
+                <asp:ListBox ID="ListBox2" runat="server" AutoPostBack="True" DataSourceID="StreetDataSource" DataTextField="NameStreet" DataValueField="id_Street" Height="164px" OnSelectedIndexChanged="ListBox2_SelectedIndexChanged" Width="199px"></asp:ListBox>
+                <asp:SqlDataSource ID="StreetDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:agencyConnectionString2 %>" SelectCommand="SELECT * FROM [Street] WHERE ([id_District] = @id_District)">
+                    <SelectParameters>
+                        <asp:SessionParameter Name="id_District" SessionField="SelectedDistrict" Type="Int32" />
+                    </SelectParameters>
+                </asp:SqlDataSource>
+            </td>
+            <td class="auto-style20" style="height: 16px">
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ControlToValidate="ListBox2" EnableClientScript="False" ErrorMessage="Необходимо выбрать"></asp:RequiredFieldValidator>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style16" style="width: 161px; height: 23px;">Номер здания</td>
             <td class="auto-style16" style="width: 129px; height: 23px;">
                 <asp:DropDownList ID="DropDownListBuildingId" runat="server" DataSourceID="BuildingIdDataSource" DataTextField="BuildingNumber" DataValueField="id_building">
                 </asp:DropDownList>
-                <asp:SqlDataSource ID="BuildingIdDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:agencyConnectionString2 %>" SelectCommand="SELECT [BuildingNumber], [id_building] FROM [Building]"></asp:SqlDataSource>
+                <asp:SqlDataSource ID="BuildingIdDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:agencyConnectionString2 %>" SelectCommand="SELECT [BuildingNumber], [id_building], [id_Street] FROM [Building] WHERE ([id_Street] = @id_Street)">
+                    <SelectParameters>
+                        <asp:SessionParameter Name="id_Street" SessionField="SelectedStreet" Type="Int32" />
+                    </SelectParameters>
+                </asp:SqlDataSource>
             </td>
             <td class="auto-style20">
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="DropDownListBuildingId" EnableClientScript="False" ErrorMessage="Поле обязательно для заполнения"></asp:RequiredFieldValidator>
@@ -83,13 +111,20 @@
             </td>
         </tr>
         <tr>
-            <td class="auto-style16" style="width: 161px; height: 26px;">Ссылка на планировку</td>
+            <td class="auto-style16" style="width: 161px; height: 26px;">Планировка</td>
             <td class="auto-style16" style="width: 129px; height: 26px;">
-                <asp:TextBox ID="TextBoxImageAptPlan" runat="server"></asp:TextBox>
+                <asp:FileUpload ID="FileUpload1" runat="server" />
             </td>
             <td class="auto-style19">
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ControlToValidate="TextBoxImageAptPlan" EnableClientScript="False" ErrorMessage="Поле обязательно для заполнения"></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ErrorMessage="Необходимо выбрать" ControlToValidate="FileUpload1" EnableClientScript="False"></asp:RequiredFieldValidator>
             </td>
+        </tr>
+        <tr>
+            <td class="auto-style16" style="width: 161px; height: 26px;">&nbsp;</td>
+            <td class="auto-style16" style="width: 129px; height: 26px;">
+                &nbsp;</td>
+            <td class="auto-style19">
+                &nbsp;</td>
         </tr>
         <tr>
             <td class="auto-style16" style="width: 161px; height: 25px">

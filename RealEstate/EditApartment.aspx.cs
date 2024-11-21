@@ -10,7 +10,6 @@ namespace RealEstate
 {
     public partial class WebForm11 : System.Web.UI.Page
     {
-        // Connection string для подключения к базе данных
         private string ConnectionString = "Provider=SQLOLEDB;Data Source=ACID-PC;Initial Catalog=agency;Integrated Security=SSPI;TrustServerCertificate=True";
 
         protected void Page_Load(object sender, EventArgs e)
